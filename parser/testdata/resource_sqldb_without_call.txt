@@ -1,5 +1,4 @@
-! parse
-stderr 'cannot reference resource svc.Moo other than by calling methods on it'
+parse
 
 -- svc/svc.go --
 package svc
@@ -26,4 +25,5 @@ import (
 
 func Foo() {
     _ = svc.Moo
+    _ = svc.Moo.Query
 }
