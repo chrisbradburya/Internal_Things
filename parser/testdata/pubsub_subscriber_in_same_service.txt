@@ -20,8 +20,8 @@ type MessageType struct {
 }
 
 var (
-    BasicTopic = pubsub.NewTopic[*MessageType]("basic-topic")
-    _ = pubsub.NewSubscription(BasicTopic, "basic-subscription", Subscriber)
+    BasicTopic = pubsub.NewTopic[*MessageType]("basic-topic", pubsub.TopicConfig{ DeliveryGuarantee: pubsub.AtLeastOnce })
+    _ = pubsub.NewSubscription(BasicTopic, "basic-subscription", pubsub.SusbcriptionConfig { Handler: Subscriber })
 )
 
 // encore:api
