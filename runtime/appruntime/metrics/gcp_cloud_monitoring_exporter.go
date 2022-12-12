@@ -14,7 +14,8 @@ func init() {
 			return cfg.CloudMonitoring != nil
 		},
 		newExporter: func(mgr *Manager) exporter {
-			return gcp.New(mgr.cfg.Static.BundledServices, mgr.cfg.Runtime.Metrics.CloudMonitoring, mgr.rootLogger)
+			metricsCfg := mgr.cfg.Runtime.Metrics
+			return gcp.New(mgr.cfg.Static.BundledServices, metricsCfg.CloudMonitoring, mgr.rootLogger)
 		},
 	})
 }
