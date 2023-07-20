@@ -7,6 +7,7 @@ import (
 	"encore.dev/appruntime/shared/jsonapi"
 	"encore.dev/appruntime/shared/logging"
 	"encore.dev/appruntime/shared/reqtrack"
+	"encore.dev/appruntime/shared/shutdown"
 	"encore.dev/appruntime/shared/testsupport"
 )
 
@@ -23,4 +24,6 @@ func init() {
 		appconf.Static, appconf.Runtime, reqtrack.Singleton, testsupport.Singleton,
 		logging.RootLogger, jsonapi.Default,
 	)
+	shutdown.Singleton.OnShutdown(Singleton.Shutdown)
+	shutdown.Singleton.RegisterHandlerHook(Singleton.StopHandlers)
 }
