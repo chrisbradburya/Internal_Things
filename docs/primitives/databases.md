@@ -172,8 +172,8 @@ For example for scripts, ad-hoc querying, or dumping data for analysis.
 
 The Encore CLI comes with built-in support for this:
 
-* Use `encore db shell [--env=<name>] <service-name>` to open a [psql](https://www.postgresql.org/docs/current/app-psql.html)
-  shell to the database for `<service-name>` in the given environment.
+* Use `encore db shell [--env=<name>] <database-name>` to open a [psql](https://www.postgresql.org/docs/current/app-psql.html)
+  shell to the database named `<database-name>` in the given environment.
   Leaving out `--env` defaults to the local development environment.
 
 * Use `encore db proxy [--env=<name>]` to create a local proxy that forwards any incoming connection
